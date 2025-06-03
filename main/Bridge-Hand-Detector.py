@@ -28,7 +28,7 @@ classNames= ["10C", "10D", "10H", "10S",
 while True:
     success, img = cap.read()
     results = model(img, stream=True)
-    # results = model('main/images/fullhouse.jpg', show=True)
+    # results = model('main/images/hand1.jpg', show=True)
     hand = []
     for r in results:
         boxes = r.boxes
@@ -49,7 +49,7 @@ while True:
 
             cvzone.putTextRect(img, f'{classNames[cls]} {conf}', (max(0, x1), max(35, y1)), scale=1, thickness=1)
 
-            if conf > 0.5:
+            if conf > 0.6:
                 hand.append(classNames[cls])
 
     hand = list(set(hand))

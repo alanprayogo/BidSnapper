@@ -107,7 +107,7 @@ def openingBridgeHand(hand):
 
     # Output
     output = bridgeHandOpenings[max(possibleBids)]
-    print("Hand's Card:", hand)
+    # print("Hand's Card:", hand)
     print("HCP:", total_hcp)
     print("SHDC:", shdc)
     print(output)

@@ -15,6 +15,12 @@ hand2 = ['3S', '10H', '6H', 'AC', 'KC', 'JC', '9C', 'AD', '10D', '8D', '5D', '4D
 # Kontrak 3NT
 # hand1 = ['AS', 'KS', '8S', 'AH', '6H', '4H', '10D', '9D', '4D', 'JC', '10C', '7C', '6C']
 # hand2 = ['8C', '5H', '2S', '8H', '7H', '3H', 'AD', 'KD', '8D', '2D', 'AS', 'QC', '9C']
+# Kontrak 4S
+# hand1 = ['AS', 'KS', '8S', '6S', '5S', 'KH', 'QH', '10H', '10D', '9D', 'QC', '4C', '2C']
+# hand2 = ['QS', 'JS', '10S', '6H', '5H', '4H', '3H', '2H', 'AD', 'KD', 'JD', 'JC', '10C']
+# Kontrak 1S
+# hand1 = ['2S', 'KS', '8S', '6S', '5S', 'KH', 'QH', '10H', '10D', '9D', 'QC', '4C', '2C']
+# hand2 = ['QS', 'JS', '10S', '6H', '5H', '4H', '3H', '2H', 'AD', 'KD', 'JD', 'JC', '10C']
 
 # === Fungsi HCP ===
 def sum_hcp(hand1, hand2):
@@ -87,6 +93,7 @@ x2 = suit_stopper_score_individual(hand2, 'S')
 y1 = suit_stopper_score_individual(hand1, 'H')
 y2 = suit_stopper_score_individual(hand2, 'H')
 strain, level = get_contract(hcp, fit_suits, x1, x2, y1, y2)
+
 x_total = x1 + x2
 y_total = y1 + y2
 
@@ -118,8 +125,9 @@ for x in range(5):
         ax.text(x + 0.5, y + 0.5, label, ha='center', va='center', fontsize=9, color='black')
 
 # Titik kombinasi
-ax.plot(x_total, y_total, 'o', color='black', markersize=8, label='Titik Gabungan')
-ax.text(x_total + 0.1, y_total + 0.1, f'({x_total}, {y_total})', fontsize=9, fontweight='bold')
+if strain not in ['S', 'H']:
+    ax.plot(x_total, y_total, 'o', color='black', markersize=8, label='Titik Gabungan')
+    ax.text(x_total + 0.1, y_total + 0.1, f'({x_total}, {y_total})', fontsize=9, fontweight='bold')
 
 # Teks penjelas tambahan
 info_text = (
